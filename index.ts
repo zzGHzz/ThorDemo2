@@ -18,14 +18,12 @@ const acc2 = '0x91436f1E5008B2E6093E114A25842F060012685d';
 
     let txids: string[] = [];
     let ret = undefined;
-
-    // 
+ 
     ret = await sendNotRevertedTX(signinigService);
     txids.push(ret.txid);
     console.log('Broadcast TX with ID = ' + ret.txid);
     console.log('...');
 
-    //
     ret = await sendRevertedTX(signinigService, connex);
     txids.push(ret.txid);
     console.log('Broadcast TX with ID = ' + ret.txid);
@@ -103,7 +101,7 @@ async function checkTXs(connex: Connex, txids: string[]) {
             if (ret === null) {
                 console.log('TX not found!');
             } else {
-                console.log('TX found!');
+                console.log('TX found! If reverted: ' + ret.reverted);
                 checker[j] = true;
             }
         }
