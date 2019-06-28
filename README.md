@@ -1,16 +1,17 @@
-# Sample code for demonstrating forcible transaction dependency on VeChainThor
+# Demo code for demonstrating forcible transaction dependency on VeChainThor
 
 ## Introduction
-The data field `DependsOn` of the [transaction (TX) model]() is designed for enabling a forcible TX dependency on VeChainThor. If we set `DependsOn` of TX `tx1` the TX ID of another TX `tx2`, then `tx2` would be accepted by the system only after `tx1` has been included in the ledger and *not reverted*.
+The data field `DependsOn` of the [transaction (TX) model]() is designed for enabling a forcible TX dependency on VeChainThor. If we set `DependsOn` of a TX using the TXID of another TX, then the TX would be accepted for processing only if the referred TX is already in the ledger and, moreover, *not reverted*.
 
-This sample code does the following:
+This demo does the following:
 
-1. Send TX `tx1` that will not be reverted (by calling `sendNotRevertedTX`)
-2. Send TX `tx2` that will be reverted (by calling `sendRevertedTX`)
-3. Send TX `tx3` that depends on `tx1` (by calling `sendTestTX`)
-4. Send TX `tx4` that depends on `tx2` (by calling `sendTestTX`)
+1. Send TX1 `tx1` that will not be reverted (by calling `sendNotRevertedTX`)
+2. Send TX2 `tx2` that will be reverted (by calling `sendRevertedTX`)
+3. Send TX3 `tx3` that depends on a non-existing TXID (by calling `sendTestTX`)
+3. Send TX4 `tx4` that depends on `tx1` (by calling `sendTestTX`)
+4. Send TX5 `tx5` that depends on `tx2` (by calling `sendTestTX`)
 
-Function `checkTXs` checks the four sent TXs in the next three new blocks and shows whether each TX is found in the blocks and if found, whether it is reverted by the system.
+Function `checkTXs` checks the five TXs in the next 5 new blocks and shows whether each TX is found in the blocks and if found, whether it is reverted.
 
 ## Installation
 Download the code via
