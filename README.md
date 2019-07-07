@@ -1,4 +1,4 @@
-# Demo code for demonstrating forcible transaction dependency on VeChainThor
+# Demo code for "What you might not know about VeChainThor yet (Part II) - Forcible Transaction Dependency"
 
 ## Introduction
 The data field `DependsOn` of the [transaction (TX) model]() is designed for enabling a forcible TX dependency on VeChainThor. If we set `DependsOn` of a TX using the TXID of another TX, then the TX would be accepted for processing only if the referred TX is already in the ledger and, moreover, *not reverted*.
