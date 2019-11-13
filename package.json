@@ -11,11 +11,11 @@
   "dependencies": {
     "@vechain/connex-framework": "^1.0.0-alpha-2",
     "@vechain/connex.driver-nodejs": "^1.0.0-alpha-3",
+    "thor-devkit": "^1.2.2",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2"
   },
   "devDependencies": {
-    "@vechain/connex": "^1.2.3",
-    "thor-devkit": "^0.11.0"
+    "@vechain/connex": "^1.2.3"
   }
 }

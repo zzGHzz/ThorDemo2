@@ -1,5 +1,5 @@
 import { Framework } from '@vechain/connex-framework'
-import { DriverNodeJS } from '@vechain/connex.driver-nodejs'
+import { Driver, SimpleNet, SimpleWallet } from '@vechain/connex.driver-nodejs';
 import { cry } from 'thor-devkit'
 
 const sk = '0x29a9c5eabe185f68abeb41f4d68e04a5004c146eaa3fd8a76aa3a87b33b6f1a7';
@@ -9,12 +9,12 @@ const acc2 = '0x91436f1E5008B2E6093E114A25842F060012685d';
 const val = '1000000000000000000';
 
 (async () => {
-    const driver = await DriverNodeJS.connect("https://sync-testnet.vechain.org");
+    const net = new SimpleNet("https://sync-testnet.vechain.org");
+    const wallet = new SimpleWallet();
+    const driver = await Driver.connect(net, wallet);
     const connex = new Framework(driver);
 
-    // add the private key of acc1 to wallet for signing TXs
-    const wallet = driver.wallet;
-    wallet.add(sk);
+    wallet.import(sk);
 
     const signinigService = connex.vendor.sign('tx');
     signinigService.signer(acc1);
